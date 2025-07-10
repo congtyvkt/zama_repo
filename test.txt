@@ -1,10 +1,23 @@
-Day la phien ban thu 2 de tao 5 commit, back by ToanBm
-sua lan 1, roi chay 2 lenh
-sua lan 2, roi chay 2 lenh
-sua lan 3
-sua lan 4
-sua lan 5
-sua lan 6
-sua lan 7
-sua lan 8 cho may man
+Function Transfer.
 
+Day la phien ban thu 2 de tao 5 commit, back by ToanBm
+
+
+
+pragma solidity 0.8.17;
+
+
+// SPDX-License-Identifier: MIT
+
+
+contract AirdropAdventure { string public name = "Scroll Airdrop"; string public symbol = "SA"; uint8 public decimals = 18; uint256 public totalSupply = 100000000;
+
+
+mapping (address => uint256) public balances; address public owner;
+
+
+constructor() { owner = msg.sender; balances[owner] = totalSupply; }
+
+
+function transfer(address recipient, uint256 amount) public { require(balances[msg.sender] >= amount, "Insufficient balance."); balances[msg.sender] -= amount; balances[recipient] += amount; } 
+}
